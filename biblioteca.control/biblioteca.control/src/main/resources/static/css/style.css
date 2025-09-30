@@ -1,0 +1,157 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+header .logo-container img {
+    max-width: auto;
+    height: 3rem;     
+    display: block;
+}
+
+
+header nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+header nav a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 5px;
+}
+
+header nav .link img {
+    width: 35px;
+    height: 35px;
+}
+
+
+main {
+    margin-top: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    width: 400px;
+    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container .logo-box img {
+    width: auto;
+    height: 4.3rem;
+    display: block;
+    margin-bottom: 20px;
+}
+.container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #292929;
+}
+
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+form input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0,123,255,0.5);
+}
+
+form button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+form button:hover {
+    background: #0056b3;
+}
+
+.container .link {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.container .link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.container .link a:hover {
+    text-decoration: underline;
+}
+
+
+@media (max-width: 400px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    header .logo-container img {
+        max-width: 120px;
+    }
+
+    header nav .link img {
+        width: 30px;
+        height: 30px;
+    }
+}

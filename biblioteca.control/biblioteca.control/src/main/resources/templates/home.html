@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+    <title>Home - Biblioteca Control</title>
+</head>
+<body>
+<header>
+    <div class="logo-container">
+        <img src="/Book2.png" class="logo" alt="logo">
+    </div>
+    <nav>
+        <a href="https://github.com/BrendoReisDev" target="_blank"><img src="github-white-icon.webp" alt="GitHub" class="github-icon"></a>
+        <a href="/index.html">Logout</a>
+    </nav>
+</header>
+
+<main>
+    <div class="container">
+        <h2>Adicionar Livro</h2>
+        <form th:action="@{/home/add}" th:object="${novoLivro}" method="post">
+
+
+
+            <input type="text" th:field="*{titulo}" placeholder="Título" required>
+            <input type="text" th:field="*{autor}" placeholder="Autor" required>
+
+
+            <h2>Dados do Aluno (Opcional)</h2>
+            <input type="text" name="nomeAluno" placeholder="Nome do Aluno (Opcional)">
+            <input type="text" name="emailAluno" placeholder="Email do Aluno (Opcional)">
+            <label>
+                <input type="checkbox" name="emprestado"> Emprestado?
+            </label>
+
+            <button type="submit">Adicionar</button>
+        </form>
+
+        <h2>Lista de Livros</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Status</th>
+                <th>Aluno</th>
+                <th>Email</th>
+                <th>Ações</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="livro : ${livros}">
+                <td th:text="${livro.titulo}"></td>
+                <td th:text="${livro.autor}"></td>
+                <td th:text="${livro.emprestado} ? 'Emprestado' : 'Disponível'"></td>
+                <td th:text="${#lists.isEmpty(livro.emprestadoBy) ? '-' : livro.emprestadoBy.get(0).nome}"></td>
+                <td th:text="${#lists.isEmpty(livro.emprestadoBy) ? '-' : livro.emprestadoBy.get(0).email}"></td>
+                <td>
+                    <form th:if="${!livro.emprestado}" th:action="@{/home/emprestar/{id}(id=${livro.id})}" method="post" style="display:inline">
+                        <select name="alunoId" required>
+                            <option th:each="aluno : ${alunos}" th:value="${aluno.id}" th:text="${aluno.nome}"></option>
+                        </select>
+                        <button type="submit" class="emp-btn">Emprestar</button>
+                    </form>
+                    <form th:if="${livro.emprestado}" th:action="@{/home/devolver/{id}(id=${livro.id})}" method="post" style="display:inline">
+                        <button type="submit" class="dev-btn">Devolver</button>
+                    </form>
+                    <form th:action="@{/home/remover/{id}(id=${livro.id})}" method="post" style="display:inline">
+                        <button type="submit" class="rem-btn">Remover</button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+</body>
+</html>

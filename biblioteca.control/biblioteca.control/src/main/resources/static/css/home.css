@@ -1,0 +1,175 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+
+body {
+    background: #f0f2f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+header .logo-container img {
+    height: 50px;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+header nav a img.github-icon {
+      max-width: auto;
+        height: 2.3rem;
+        display: block;
+}
+
+
+main {
+    margin-top: 100px;
+    width: 90%;
+    max-width: 900px;
+}
+
+
+h2 {
+    margin: 15px 0;
+    color: #292929;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+form input[type="text"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+form input[type="text"]:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0,123,255,0.3);
+}
+
+form button {
+    padding: 10px;
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+form button:hover {
+    background: #0056b3;
+}
+
+form label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background: #007bff;
+    color: #fff;
+}
+
+td button.emp-btn {
+    background-color: #007bff;
+    color: #fff;
+}
+
+td button.emp-btn:hover {
+    background-color: #0056b3;
+}
+
+td button.dev-btn {
+    background-color: #ffc107;
+    color: #000;
+}
+
+td button.dev-btn:hover {
+    background-color: #e0a800;
+}
+
+td button.rem-btn {
+    background-color: #dc3545;
+    color: #fff;
+
+}
+
+td button.rem-btn:hover {
+    background-color: #c82333;
+
+}
+
+td select {
+    padding: 5px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 0.9rem;
+    min-width: 120px;
+    cursor: pointer;
+}
+
+
+@media (max-width: 480px) {
+    main {
+        width: 95%;
+    }
+
